@@ -1,10 +1,11 @@
 import React from "react";
 import { useState } from "react";
 
-const Header = () => {
-  const [isDarkMode, setIsDarkMode] = useState(true);
+//here it is a prop not a state, so it cannot be changed in the child component. this is why we use the onToggleDarkMode()  instead of writting he logic here
+const Header = ({isDarkMode,onToggleDarkMode}) => {
+  // const [isDarkMode, setIsDarkMode] = useState(true);
 
-  const handleClick = () => setIsDarkMode(!isDarkMode);
+  const handleClick = () => onToggleDarkMode();
 
   const buttonTextContent = isDarkMode ? "Light Mode" : "Dark Mode";
 

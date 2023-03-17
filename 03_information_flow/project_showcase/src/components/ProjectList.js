@@ -1,18 +1,19 @@
 import ProjectListItem from "./ProjectListItem";
 import { useState } from "react";
 
-const ProjectList = ({ projects }) => {
-  const [searchQuery, setSearchQuery] = useState("");
+const ProjectList = ({ searchResults, setSearchQuery, onSetSearch }) => {
+  // const [searchQuery, setSearchQuery] = useState("");
 
-  const searchResults = projects.filter((project) => {
-    return project.name.toLowerCase().includes(searchQuery.toLowerCase());
-  });
+  // const searchResults = projects.filter((project) => {
+  //   return project.name.toLowerCase().includes(searchQuery.toLowerCase());
+  // });
 
   const projectListItems = searchResults.map((project) => (
     <ProjectListItem key={project.id} {...project} />
   ));
 
-  const handleOnChange = (e) => setSearchQuery(e.target.value);
+  // const handleOnChange = (e) => setSearchQuery(e.target.value);
+  const handleOnChange = (e) => onSetSearch(e.target.value)
 
   return (
     <section>
